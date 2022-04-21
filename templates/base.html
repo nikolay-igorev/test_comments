@@ -21,13 +21,16 @@
     </button>
     {% if user.is_authenticated %}
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-
         <div class="navbar-nav">
           <a href="{% url 'post_create' %}" class="nav-link">
             +New
           </a>
           <a href="{% url 'posts_list' %}" class="nav-link">
             My posts
+          </a>
+          <! –– Дерево комментариев ––>
+          <a href="{% url 'comments_list' %}" class="nav-link">
+            All Comments
           </a>
         </div>
         <div class="navbar-nav">
@@ -37,13 +40,21 @@
         </div>
       </div>
     {% else %}
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <a href="{% url 'login' %}">
-          <button type="button" class="btn btn-primary mx-1">Log In</button>
-        </a>
-        <a href="{% url 'signup' %}">
-          <button type="button" class="btn btn-outline-primary">Sign Up</button>
-        </a>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <div class="navbar-nav">
+          <! –– Дерево комментариев ––>
+          <a href="{% url 'comments_list' %}" class="nav-link">
+            All Comments
+          </a>
+        </div>
+        <div class="navbar-nav">
+          <a href="{% url 'login' %}">
+            <button type="button" class="btn btn-primary mx-1">Log In</button>
+          </a>
+          <a href="{% url 'signup' %}">
+            <button type="button" class="btn btn-outline-primary">Sign Up</button>
+          </a>
+        </div>
       </div>
     {% endif %}
   </div>
@@ -52,8 +63,7 @@
   {% block content %}
   {% endblock content %}
 </div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

@@ -7,7 +7,10 @@
         </a>
         <h6 class="card-subtitle mb-2 text-muted">{{ post.author }}</h6>
         <p class="card-text">{{ post.body }}</p>
+        <a href="{% url 'comments_post_list' post.pk %}" class="card-link">Comments</a>
+        <a href="{% url 'comment_create' post.pk %}" class="card-link">Add Comment</a>
         {% if post.author == user %}
+         <span class="mx-2">|</span>
           <a href="{% url 'post_update' post.pk %}" class="card-link">Edit</a>
           <a href="{% url 'post_delete' post.pk %}" class="card-link">Delete</a>
         {% endif %}
