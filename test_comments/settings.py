@@ -10,23 +10,23 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import dj_database_url
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+# TODO: в файл env ключ, пароль и логин от БД
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG_MODE') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
+    'comments.apps.CommentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,8 +121,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

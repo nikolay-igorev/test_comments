@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<! –– Форма создания комментария ––>
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-5 col-12">
+      <a href="{% url post_url post.pk %}" class="link-dark">
+        <h5 class="mb-3">{{ heading }}</h5>
+      </a>
+      <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
