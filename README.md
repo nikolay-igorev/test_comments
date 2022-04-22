@@ -39,7 +39,15 @@ python manage.py runserver
 docker-compose up
 ```
 
-и оно будет доступно по адресу: `http:/localhost:8888`. Чтобы остановить все контейнеры и удалить артефакты:
+Если возникла проблема с доступом к файлу docker-entrypoint.sh:
+
+```bash
+chmod +x docker-entrypoint.sh
+docker-compose build --no-cache
+docker-compose up
+```
+
+Приложение будет доступно по адресу: `http:/localhost:8888`. Чтобы остановить все контейнеры и удалить артефакты:
 
 ```bash
 docker-compose down --remove-orphans
