@@ -11,5 +11,6 @@ crispy-bootstrap5 = "*"
 gunicorn = "*"
 whitenoise = "*"
 dj-database-url = "*"
+djangorestframework = "*"
 
 [dev-packages]
