@@ -2,7 +2,9 @@
 
 Тестовое задание: система комментариев блога на Django.
 
-Heroku: https://test-comments1.herokuapp.com/
+### Документация
+
+Swagger: `http://<your_domain>/swagger/`
 
 ### Установка
 
@@ -39,29 +41,8 @@ python manage.py runserver
 docker-compose up
 ```
 
-Если возникла проблема с доступом к файлу docker-entrypoint.sh:
-
-```bash
-chmod +x docker-entrypoint.sh
-docker-compose build --no-cache
-docker-compose up
-```
-
-Приложение будет доступно по адресу: `http:/localhost:8888`. Чтобы остановить все контейнеры и удалить артефакты:
+Приложение будет доступно по адресу: `http://localhost:8888/`. Чтобы остановить все контейнеры и удалить артефакты:
 
 ```bash
 docker-compose down --remove-orphans
 ```
-
-### Endpoints
-
-
-| URL                                      | Description                                          |
-| ---------------------------------------- | -----------------------------------------------------|
-| `/comments`                              | Все комментарии в виде дерева.                       |
-| `/post/<int:pk>/comments`                | Список комментариев к посту до 3 уровня вложенности. |
-| `/post/<int:pk>/comments/all`            | Полный список комментариев к посту.                  |
-| `/comments/<int:pk>`                     | Список ответов к комментарию до 3 уровня вложенности.|
-| `/comments/<int:pk>/all`                 | Список ответов к комментарию.                        |
-| `/post/<int:pk>/comments/create`         | Создание комментария к посту.                        |
-| `/comments/<int:pk>/create`              | Создание ответа на комментарий.                      |
