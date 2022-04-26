@@ -1,7 +1,11 @@
-from rest_framework import routers
+from django.urls import path
 
-from .views import PostViewSet, CommentViewSet
+import api.views as views
 
-blog_router = routers.SimpleRouter()
-blog_router.register(r'posts', PostViewSet)
-blog_router.register(r'comments', CommentViewSet)
+
+urlpatterns = [
+    path('posts/', views.PostListCreateAPIView.as_view()),
+    path('posts/<int:post_id>/', views.CommentPostListCreateAPIView.as_view()),
+    path('comments/', views.CommentListAPIView.as_view()),
+    path('comments/<int:comment_id>', views.CommentReplyListCreateAPIView.as_view()),
+]
